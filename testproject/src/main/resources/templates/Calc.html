@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+<h1> Практическая 1 </h1>
+<h2> Калькулятор GET / POST </h2> <br>
+
+<a href="home"> Back </a>
+
+<form method="post" id="formCalc" action="/calc">
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Simple GET / POST Calculator</h4>
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label class="form-label">First Number</label>
+                <input placeholder="Type your first number here" class="form-control" type="number" name="firstNum"
+                       th:value="${firstNum}">
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Second Number</label>
+                <input placeholder="Type your second number here" class="form-control" type="number" name="secondNum"
+                       th:value="${secondNum}">
+            </div>
+            <div class="col-12">
+                <label for="operator" class="form-label">Operator</label>
+                <input class="form-control" placeholder="+ , - , * , /" type="text" name="operator"
+                       th:value="${operator}">
+            </div>
+
+            <div class="col-12">
+                <label for="Result" class="form-label">Result <span class="text-muted">Hope, its correct</span></label>
+                <input readonly="readonly" class="form-control" placeholder="Result" type="text" name="result"
+                       th:value="${result}">
+            </div>
+
+            <select id="typeQuery" class="form-select">
+                <option value="GET">GET</option>
+                <option value="POST" selected="selected">POST</option>
+            </select>
+            <input class="w-100 btn btn-primary btn-lg" type="submit" value="Send Request" onclick="changeMethod()"/>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var input = document.getElementById('typeQuery');
+
+        function changeMethod() {
+            document.getElementById("formCalc").method = input.value.toString();
+        }
+    </script>
+
+</form>
+</body>
+</html>
