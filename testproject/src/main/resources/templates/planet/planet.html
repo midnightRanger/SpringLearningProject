@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Планеты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Список планет </h1>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col"> Название </th>
+        <th scope="col"> Орбитальная скорость </th>
+        <th scope="col"> Наклон </th>
+        <th scope="col"> Температура в цельсиях </th>
+        <th scope="col"> Температура в кельвинах </th>
+        <th scope="col"> Действия </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="el : ${planetlist}" >
+        <td th:text="${el.name}"></td>
+        <td th:text="${el.orbitalSpeed}"></td>
+        <td th:text="${el.rotation}"></td>
+        <td th:text="${el.tempinc}"></td>
+        <td th:text="${el.tempink}"></td>
+
+        <td>
+            <a th:href="'/planet/planet-info/' + ${el.UID}"> Редактировать </a>
+        </td>
+          </tr>
+    </tbody>
+</table>
+
+</div>
+
+<a href="/planet/add" class="btn btn-success"> Добавить планету </a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление планеты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Добавить планету </h1>
+
+<form method="post">
+    <label> Название планеты </label>
+    <input class="form-control" placeholder="Название" type="text" name="name">
+    <label> Орбитальная скорость </label>
+    <input class="form-control" placeholder="Орбитальная скорость" type="number" name="orbitalspeed">
+    <label> Наклон </label>
+    <input class="form-control" placeholder="Наклон" type="number" name="rotation">
+    <label> Температура в цельсиях </label>
+    <input class="form-control" placeholder="Температура в цельсиях" type="number" name="tempinc">
+    <label> Температура в кельвинах </label>
+    <input class="form-control" placeholder="Температура в кельвинах" type="number" name="tempink">
+    <input type="submit" value="Добавить планету">
+</form>
+</body>
+</html>

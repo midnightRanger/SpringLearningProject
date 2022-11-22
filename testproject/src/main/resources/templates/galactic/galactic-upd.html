@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление галактики</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Добавить галактику </h1>
+
+<form method="post">
+    <label> Название галактики </label>
+    <input th:value="${object.name}" class="form-control" placeholder="Название" type="text" name="name">
+    <label> Диаметр D25 </label>
+    <input th:value="${object.diametr}" class="form-control" placeholder="5—50 кпк" type="number" name="diametr">
+    <label> Масса М25 в пределах D25 </label>
+    <input th:value="${object.weight}" class="form-control" placeholder="10^7—10^12 M" type="number" name="weight">
+    <label> Скорость вращения V внешних областей галактик </label>
+    <input th:value="${object.rotationSpeed}" class="form-control" placeholder="50—300 км/с" type="number" name="rotationSpeed">
+    <label> Светимость в люменах </label>
+    <input th:value="${object.lumen}" class="form-control" placeholder="10^7—10^11 L" type="number" name="lumen">
+    <input type="submit" value="Редактировать планету">
+</form>
+</body>
+</html>

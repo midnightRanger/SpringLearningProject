@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+
+<h1 th:text = "'Планета: ' + ${one_planet.name}"> </h1>
+
+<div class="container">
+  <h2 th:text="': ' + ${one_planet.getOrbitalSpeed()}"> </h2>
+</div>
+
+<a th:href="'/planet/planet-info/' + ${one_planet.UID} + '/upd'"
+   class="btn btn-warning"> Редактировать</a>
+<a th:href="'/planet/planet-info/' + ${one_planet.UID} + '/del'"
+   class="btn btn-danger"> Удалить </a>
+</body>
+</html>

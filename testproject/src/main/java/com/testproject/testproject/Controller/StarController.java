@@ -38,6 +38,6 @@ public class StarController {
     ) {
         Star new_star = new Star(name, classStar, lumen);
         starRepository.save(new_star);
-        return "redirect:/";
+        return "redirect:/star/";
     }
 }
