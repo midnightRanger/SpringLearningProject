@@ -23,8 +23,10 @@
                 <p th:text = "'Светимость: ' + ${oneGalactic.lumen}"> <br>
             </div>
             <div class="modal-footer flex-column border-top-0">
-                <a th:href="'/galactic/galactic-info/' + ${oneGalactic.UID} + '/upd'" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Изменить</a>
-                <a th:href="'/galactic/galactic-info/' + ${oneGalactic.UID} + '/del'" class="btn btn-lg btn-primary w-100 mx-0 mb-2" data-bs-dismiss="modal">Удалить</a>
+                <a th:href="'/galactic/galactic-info/' + ${oneGalactic.UID} + '/upd'"
+                   class="btn btn-lg btn-primary w-100 mx-0 mb-2">Изменить</a>
+                <a th:href="'/galactic/galactic-info/' + ${oneGalactic.UID} + '/del'"
+                   class="btn btn-lg btn-primary w-100 mx-0 mb-2" data-bs-dismiss="modal">Удалить</a>
             </div>
         </div>
     </div>

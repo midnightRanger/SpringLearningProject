@@ -68,9 +68,6 @@ public class GalacticController {
         Galactic galacticObj = galacticService.findById(id).orElseThrow();
         galacticService.delete(galacticObj);
         return "redirect:/galactic/";
-
-
-
     }
 
     @GetMapping("/galactic-info/{id}/upd")
