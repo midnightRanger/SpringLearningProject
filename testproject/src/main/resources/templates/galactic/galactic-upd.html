@@ -14,16 +14,16 @@
 
 <form method="post">
     <label> Название галактики </label>
-    <input th:value="${object.name}" class="form-control" placeholder="Название" type="text" name="name">
+    <input th:value="${object.name}" class="form-control" placeholder="Название" step="0.01" type="text" name="name">
     <label> Диаметр D25 </label>
-    <input th:value="${object.diametr}" class="form-control" placeholder="5—50 кпк" type="number" name="diametr">
+    <input th:value="${object.diametr}" class="form-control" placeholder="5—50 кпк" step="0.01" type="number" name="diametr">
     <label> Масса М25 в пределах D25 </label>
-    <input th:value="${object.weight}" class="form-control" placeholder="10^7—10^12 M" type="number" name="weight">
+    <input th:value="${object.weight}" class="form-control" placeholder="10^7—10^12 M" step="0.01" type="number" name="weight">
     <label> Скорость вращения V внешних областей галактик </label>
-    <input th:value="${object.rotationSpeed}" class="form-control" placeholder="50—300 км/с" type="number" name="rotationSpeed">
+    <input th:value="${object.rotationSpeed}" class="form-control" placeholder="50—300 км/с" step="0.01" type="number" name="rotationSpeed">
     <label> Светимость в люменах </label>
-    <input th:value="${object.lumen}" class="form-control" placeholder="10^7—10^11 L" type="number" name="lumen">
-    <input type="submit" value="Редактировать планету">
+    <input th:value="${object.lumen}"  class="form-control" placeholder="10^7—10^11 L" step="0.01" type="number" name="lumen">
+    <input class="btn btn-success" type="submit" value="Редактировать планету">
 </form>
 </body>
 </html>

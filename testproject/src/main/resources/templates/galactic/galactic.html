@@ -20,6 +20,7 @@
         <th scope="col"> Масса М25 в пределах D25 </th>
         <th scope="col"> Скорость вращения V внешних областей галактик </th>
         <th scope="col"> Светимость в люменах </th>
+        <th scope="col"> Список планет </th>
         <th scope="col"> Действия </th>
     </tr>
     </thead>
@@ -30,6 +31,19 @@
         <td th:text="${el.weight}"></td>
         <td th:text="${el.rotationSpeed}"></td>
         <td th:text="${el.lumen}"></td>
+
+        <td>
+            <div th:if="!${#lists.isEmpty(el.planets)}">
+                <ul th:each="sc: ${el.planets}">
+                    <li> <p th:text="${sc.name}"> </p> </li>
+                </ul>
+            </div>
+
+            <div th:if="${#lists.isEmpty(el.planets)}">
+
+                Нет данных о планетах
+            </div>
+        </td>
 
         <td>
             <a th:href="'/galactic/galactic-info/' + ${el.UID}"> Редактировать </a>

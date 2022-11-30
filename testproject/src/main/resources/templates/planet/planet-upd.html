@@ -23,7 +23,23 @@
   <input th:value="${object.tempinc}" class="form-control" placeholder="Температура в цельсиях" type="number" name="tempinc">
   <label> Температура в кельвинах </label>
   <input th:value="${object.tempink}" class="form-control" placeholder="Температура в кельвинах" type="number" name="tempink">
-  <input type="submit" value="Редактировать планету">
+
+  <label>Ядро: </label>
+  <select name="planetCoreName">
+    <div th:each="element : ${planetCores}">
+      <option th:text="${element.name}"></option>
+    </div>
+  </select>
+  <br>
+  <label>Галактика: </label>
+  <select name="galacticName">
+    <div th:each="el: ${galacticlist}">
+      <option th:text="${el.name}" ></option>
+    </div>
+  </select>
+  <br>
+
+  <input type="submit" class="btn btn-success" value="Редактировать планету">
 </form>
 </body>
 </html>

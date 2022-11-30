@@ -35,7 +35,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> findByNameContains (String keyword) {
-        return userRepository.findByNameContains(keyword);
+    public List<User> findByUsernameContains (String keyword) {
+        return userRepository.findByUsernameContains(keyword);
     }
+
+    public User findByUsername(String username) {return userRepository.findByUsername(username); }
 }

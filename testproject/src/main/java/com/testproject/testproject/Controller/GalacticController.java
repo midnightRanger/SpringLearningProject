@@ -40,15 +40,8 @@ public class GalacticController {
     }
 
     @PostMapping("/add")
-    public String AddGalactic(
-            @RequestParam(name = "name") String name,
-            @RequestParam(name = "diametr") double diametr,
-            @RequestParam(name = "weight") double weight,
-            @RequestParam(name = "rotationSpeed") double rotationSpeed,
-            @RequestParam(name = "lumen") double lumen
-    ) {
-        Galactic newGalactic = new Galactic(name, diametr, weight, rotationSpeed, lumen);
-        galacticService.save(newGalactic);
+    public String AddGalactic(Galactic galactic) {
+        galacticService.save(galactic);
         return "redirect:/galactic/";
     }
 

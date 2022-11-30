@@ -1,9 +1,9 @@
 package com.testproject.testproject.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.lang.NonNull;
+
+import javax.persistence.*;
+import javax.validation.constraints.Null;
 
 @Entity
 public class Planet {
@@ -16,17 +16,26 @@ public class Planet {
     private Double rotation;
     private Double tempinc;
     private Double tempink;
+    @NonNull
+    @OneToOne(optional = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "planetcoreId")
+    private PlanetCore planetCore;
+
+    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    private Galactic galactic;
 
     public Planet() {
 
     }
 
-    public Planet(String name, Double orbitalSpeed, Double rotation, Double tempinc, Double tempink) {
+    public Planet(String name, Double orbitalSpeed, Double rotation, Double tempinc, Double tempink, PlanetCore planetCore, Galactic galactic) {
         this.name = name;
         this.orbitalSpeed = orbitalSpeed;
         this.rotation = rotation;
         this.tempinc = tempinc;
         this.tempink = tempink;
+        this.planetCore = planetCore;
+        this.galactic = galactic;
     }
 
     public Long getUID() {
@@ -75,5 +84,21 @@ public class Planet {
 
     public void setTempink(Double tempink) {
         this.tempink = tempink;
+    }
+
+    public PlanetCore getPlanetCore() {
+        return planetCore;
+    }
+
+    public void setPlanetCore(PlanetCore planetCore) {
+        this.planetCore = planetCore;
+    }
+
+    public Galactic getGalactic() {
+        return galactic;
+    }
+
+    public void setGalactic(Galactic galactic) {
+        this.galactic = galactic;
     }
 }

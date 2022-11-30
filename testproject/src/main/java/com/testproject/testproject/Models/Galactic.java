@@ -1,9 +1,7 @@
 package com.testproject.testproject.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Galactic {
@@ -17,12 +15,16 @@ public class Galactic {
     private double rotationSpeed;
     private double lumen;
 
-    public Galactic(String name, double diametr, double weight, double rotationSpeed, double lumen) {
+    @OneToMany(mappedBy = "galactic", fetch = FetchType.EAGER)
+    private Collection<Planet> planets = null;
+
+    public Galactic(String name, double diametr, double weight, double rotationSpeed, double lumen, Collection<Planet> planets) {
         this.name = name;
         this.diametr = diametr;
         this.weight = weight;
         this.rotationSpeed = rotationSpeed;
         this.lumen = lumen;
+        this.planets = planets;
     }
 
     public Galactic() {
@@ -75,5 +77,13 @@ public class Galactic {
 
     public void setLumen(double lumen) {
         this.lumen = lumen;
+    }
+
+    public Collection<Planet> getPlanets() {
+        return planets;
+    }
+
+    public void setPlanets(Collection<Planet> planets) {
+        this.planets = planets;
     }
 }

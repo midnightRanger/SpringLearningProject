@@ -1,9 +1,7 @@
 package com.testproject.testproject.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Star {
@@ -16,14 +14,28 @@ public class Star {
     private String ClassStar;
     private Integer Lumen;
 
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name="scientist_star",
+               joinColumns = @JoinColumn(name="star_id"),
+                inverseJoinColumns = @JoinColumn(name="scientist_id"))
+    private List<Scientist> scientists;
     public Star() {
 
     }
 
-    public Star(String name, String classStar, Integer lumen) {
-        this.Name = name;
-        this.ClassStar = classStar;
-        this.Lumen = lumen;
+    public Star(String name, String classStar, Integer lumen, List<Scientist> scientists) {
+        Name = name;
+        ClassStar = classStar;
+        Lumen = lumen;
+        this.scientists = scientists;
+    }
+
+    public List<Scientist> getScientists() {
+        return scientists;
+    }
+
+    public void setScientists(List<Scientist> scientists) {
+        this.scientists = scientists;
     }
 
     public Long getUID() {

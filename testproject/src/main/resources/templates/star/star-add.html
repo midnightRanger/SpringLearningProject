@@ -19,7 +19,17 @@
     <input class="form-control" placeholder="Класс" type="text" name="classStar">
     <label> Светимость </label>
     <input class="form-control" placeholder="Светимость" type="number" name="lumen">
-    <input type="submit" value="Добавить звезду">
+
+    <br>
+    <label> Ученый: </label>
+    <select  name="scientistSurname">
+        <div th:each="element : ${scientistlist}">
+            <option th:text="${element.surname}"></option>
+        </div>
+    </select>
+    <br>
+
+    <input type="submit" class="btn btn-success"  value="Добавить звезду">
 </form>
 </body>
 </html>

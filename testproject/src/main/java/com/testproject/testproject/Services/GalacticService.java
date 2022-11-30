@@ -2,6 +2,7 @@ package com.testproject.testproject.Services;
 
 import com.testproject.testproject.Models.Galactic;
 import com.testproject.testproject.Models.Planet;
+import com.testproject.testproject.Models.PlanetCore;
 import com.testproject.testproject.Repository.GalacticRepository;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +39,10 @@ public class GalacticService {
     public List<Galactic> findByNameContains(String word) {
         return galacticRepository.findByNameContains(word);
     }
+
+    public Optional<Galactic> findByName(String name) {
+        return galacticRepository.findByName(name);
+    }
+
+
 }

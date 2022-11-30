@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Планеты</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
 </head>
 <body>
 
@@ -20,6 +19,8 @@
         <th scope="col"> Наклон </th>
         <th scope="col"> Температура в цельсиях </th>
         <th scope="col"> Температура в кельвинах </th>
+        <th scope="col"> Глубина залежа ядра </th>
+        <th scope="col"> Находится в галактике</th>
         <th scope="col"> Действия </th>
     </tr>
     </thead>
@@ -30,9 +31,10 @@
         <td th:text="${el.rotation}"></td>
         <td th:text="${el.tempinc}"></td>
         <td th:text="${el.tempink}"></td>
-
+        <td th:text="${el.planetCore != null} ? ${el.planetCore.depth} : 'Данные о ядре не указаны'"></td>
+        <td th:text="${el.galactic != null} ? ${el.galactic.name} : 'Галатика не указана'"></td>
         <td>
-            <a th:href="'/planet/planet-info/' + ${el.UID}"> Редактировать </a>
+            <a th:href="'/planet/planet-info/' + ${el.UID}"> Редактировать планету </a>
         </td>
           </tr>
     </tbody>

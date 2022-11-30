@@ -18,6 +18,8 @@
         <th scope="col"> Название </th>
         <th scope="col"> Класс </th>
         <th scope="col"> Люмен </th>
+        <th scope="col"> Фамилии ученых </th>
+        <th scope="col"> Действия </th>
     </tr>
     </thead>
     <tbody>
@@ -25,6 +27,20 @@
         <td th:text="${el.name}"></td>
         <td th:text="${el.classStar}"></td>
         <td th:text="${el.lumen}"></td>
+        <td>
+        <div th:if="!${#lists.isEmpty(el.scientists)}">
+            <ul th:each="sc: ${el.scientists}">
+            <li> <p th:text="${sc.surname}"> </p> </li>
+            </ul>
+        </div>
+
+        <div th:if="${#lists.isEmpty(el.scientists)}">
+
+                Нет данных об ученых
+       </div>
+        <td>
+        <a th:href="'/star/add/' + ${el.UID} + '/scientists/'"> Редактировать </a>
+        </td>
     </tr>
     </tbody>
 </table>
