@@ -6,6 +6,7 @@ import com.testproject.testproject.Models.PlanetCore;
 import com.testproject.testproject.Services.GalacticService;
 import com.testproject.testproject.Services.PlanetCoreService;
 import com.testproject.testproject.Services.PlanetService;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +43,7 @@ public class PlanetController {
             List<Planet> planetList = planetService.findByNameContains(keyword);
             model.addAttribute("planetlist", planetList);
         }
+
         return "/planet/planet";
     }
 

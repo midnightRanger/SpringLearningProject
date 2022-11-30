@@ -1,3 +1,5 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <div th:fragment="headerMain">
 <header class="p-3 text-bg-dark">
     <div class="container">
@@ -13,6 +15,9 @@
                 <li><a href="/planet/" class="nav-link px-2 text-white">Планеты</a></li>
                 <li><a href="/galactic/" class="nav-link px-2 text-white">Галактики</a></li>
                 <li><a href="/user/" class="nav-link px-2 text-white">Пользователи</a></li>
+                <div sec:authorize="isAuthenticated()">
+                    <li> Привет, <span sec:authentication="name" class="nav-link px-2 text-white"></span></li>
+                </div>
                 <li>  <form th:action="@{/logout}" method="post">
                     <input type="submit" value="Sign Out"/>
                 </form></li>

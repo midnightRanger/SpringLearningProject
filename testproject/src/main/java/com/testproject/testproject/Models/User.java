@@ -58,11 +58,11 @@ public class User {
     public User() {
     }
 
-    public User(String login, String email, String password, String name, String surname, boolean active, Passport pasport, Date date) {
+    public User(String login, String email, String password, String username, String surname, boolean active, Passport pasport, Date date) {
         this.login = login;
         this.email = email;
         this.password = password;
-        this.username = name;
+        this.username = username;
         this.surname = surname;
         this.passport = pasport;
         this.dateOfTheBirth = date;

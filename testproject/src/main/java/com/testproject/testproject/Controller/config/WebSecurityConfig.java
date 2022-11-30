@@ -17,11 +17,8 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     private DataSource dataSource;
-
-
     @Bean
     public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder(8);
@@ -35,7 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 authoritiesByUsernameQuery("SELECT u.username, ur.roles FROM user u " +
                         "INNER JOIN user_role ur ON u.UID = ur.user_id WHERE u.login=?");
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
