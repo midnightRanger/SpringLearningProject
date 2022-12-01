@@ -14,7 +14,12 @@
                 <li><a href="/star/" class="nav-link px-2 text-white">Звезды</a></li>
                 <li><a href="/planet/" class="nav-link px-2 text-white">Планеты</a></li>
                 <li><a href="/galactic/" class="nav-link px-2 text-white">Галактики</a></li>
-                <li><a href="/user/" class="nav-link px-2 text-white">Пользователи</a></li>
+                <div sec:authorize="hasAuthority('ADMIN')">
+                <li><a href="/admin/" class="nav-link px-2 text-white">Пользователи</a></li>
+                </div>
+                <div sec:authorize="hasAuthority('MODERATOR')">
+                    <li> <a href="/moderator/" class="nav-link px-2 text-white">Роли пользователей</a></li>
+                </div>
                 <div sec:authorize="isAuthenticated()">
                     <li> Привет, <span sec:authentication="name" class="nav-link px-2 text-white"></span></li>
                 </div>
@@ -22,7 +27,6 @@
                     <input type="submit" value="Sign Out"/>
                 </form></li>
             </ul>
-
             <form method="get" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                 <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
                        name="keyword" aria-label="Search">

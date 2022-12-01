@@ -85,7 +85,7 @@ public class UserController {
     }
 
     @PostMapping("/user-info/{id}/upd" )
-    public String updPlanetPost(@Valid User user, Model model, BindingResult bindingResult, @RequestParam(name="roles[]", required = false) String[] roles)
+    public String updPlanetPost(@Valid User user, Model model, BindingResult bindingResult, String[] roles)
      {
          if(user.getUsername().equals("Nigger"))
                 bindingResult.addError(new FieldError("user", "name",
